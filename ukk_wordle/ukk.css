@@ -53,6 +53,8 @@ p {
 
 .item:active {
     cursor: grabbing;
+    transform: scale(1);
+    opacity: 0.3;
 }
 
 .divider {
@@ -72,7 +74,7 @@ p {
 
 .shuffle:hover {
     cursor: pointer;
-    transform: scale(1.05);
+    transform: scale(1.02);
     background-color: var(--accent);
     filter: brightness(0.9);
 }
