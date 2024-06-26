@@ -43,7 +43,7 @@ p {
     color: var(--white);
     border: 2px solid grey;
     border-radius: 8px;
-    transition: transform 0.5s ease;
+    transition: transform 0.25s ease;
 }
 
 .item:hover {
@@ -61,7 +61,7 @@ p {
 }
 
 .shuffle {
-    transition: transform 0.5s ease;
+    transition: transform 0.25s ease;
     background-color: var(--accent);
     border: none;
     border-radius: 18px;
