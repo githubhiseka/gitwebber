@@ -4,8 +4,7 @@
     --white: #f4f4f4;
     --custom-font: "Onest", sans-serif;
     --accent: #bb86fc;
-    --wrong: #ffb83db6;
-    --right: #21a366;
+    --right: #569152;
 }
 
 body {
@@ -20,10 +19,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 700px;
     /* border: 1px solid white; */
 }
 
-p {
+p, i, .item {
     color: var(--white);
 }
 
@@ -40,8 +40,7 @@ p {
     max-width: 1em;
     text-align: center;
     background-color: var(--item-color);
-    color: var(--white);
-    border: 2px solid grey;
+    border: 3px solid grey;
     border-radius: 8px;
     transition: transform 0.25s ease;
 }
@@ -51,15 +50,16 @@ p {
     transform: scale(1.05);
 }
 
-.item:active {
+/* .item:active {
     cursor: grabbing;
     transform: scale(1);
     opacity: 0.3;
-}
+} */
 
 .divider {
     background-color: transparent;
     border: none;
+    width: 2em;
 }
 
 .shuffle {
@@ -69,14 +69,21 @@ p {
     border-radius: 18px;
     padding: 1em;
     max-height: 3.2rem;
-    margin-top: 2.5em;
+    margin: 2.5em 0 7em 0;
 }
 
 .shuffle:hover {
     cursor: pointer;
+}
+
+.shuffle:active {
     transform: scale(1.02);
     background-color: var(--accent);
     filter: brightness(0.9);
+}
+
+i {
+    visibility: hidden;
 }
 
 .bottom-heading {
