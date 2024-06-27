@@ -1,5 +1,6 @@
 var draggedElement = null;
 var items;
+let trueCounter = 0;
 const shuffle = document.querySelector(".shuffle");
 
 shuffle.onclick = refresh
@@ -73,6 +74,12 @@ function checkDataItemMatch(element) {
         element.style.transform = "scale(1.07)";
         element.style.borderColor = borderColor;
         element.style.backgroundColor = rightColor; // Example action
+
+        // to count how many letters are matched
+        trueCounter++
+    }
+    if (trueCounter === 11) {
+        document.querySelector("i").style.visibility = "visible";
     }
 }
 
@@ -87,6 +94,7 @@ function shuffleArray(array) {
 document.addEventListener("DOMContentLoaded", event => {
     items = document.querySelectorAll(".core .item");
 
+    let counter = 0;
     const letters = "SEMANGATUKK".split('');
     // Generate a randomized sequence of letters
     const shuffledLetters = shuffleArray(letters);
@@ -101,7 +109,7 @@ document.addEventListener("DOMContentLoaded", event => {
         item.addEventListener("drop", handleDrop);
         item.addEventListener("dragend", handleDragEnd);
 
-        // Check if data-item matches innerHTML on page load
+        // Check if data-item matches innerHTML on page load and increment counter if true
         checkDataItemMatch(item);
     });
 });
