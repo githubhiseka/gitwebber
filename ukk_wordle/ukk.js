@@ -37,13 +37,15 @@ function handleDrop(e) {
     if (e.stopPropagation)
         e.stopPropagation();
 
+    if (this.classList.contains("correct")) {
+        return;
+    }
+
     if (draggedElement != this) {
         draggedElement.innerHTML = this.innerHTML;
-        // draggedElement.setAttribute("data-item", this.innerHTML);
 
         let replacedItem = e.dataTransfer.getData("item");
         this.innerHTML = replacedItem;
-        // this.setAttribute("data-item", replacedItem);
 
         // Check if data-item matches innerHTML after dropping
         checkDataItemMatch(this);
@@ -66,6 +68,7 @@ function checkDataItemMatch(element) {
         console.log("Match found:", element);
         // Perform your desired action here
         element.setAttribute("draggable", false)
+        element.classList.add("correct")
          // Use the CSS variable for the background color
         const rootStyles = getComputedStyle(document.documentElement);
         const rightColor = rootStyles.getPropertyValue("--right").trim();
@@ -77,9 +80,17 @@ function checkDataItemMatch(element) {
 
         // to count how many letters are matched
         trueCounter++
-    }
-    if (trueCounter === 11) {
-        document.querySelector("i").style.visibility = "visible";
+        
+        if (trueCounter === 11) {
+            document.querySelector("i").style.visibility = "visible";
+    
+            // Play confetti animation
+            confetti({
+                particleCount: 700,
+                spread: 360,
+                origin: { y: 0.44 }
+            });
+        }
     }
 }
 
