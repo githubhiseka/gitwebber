@@ -27,6 +27,10 @@ p, i, .item {
     color: var(--white);
 }
 
+p {
+    font-size: large;
+}
+
 .core {
     display: flex;
     gap: 0.6em;
